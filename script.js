@@ -51,7 +51,7 @@ const mp = new MercadoPago('TEST-1662793b-83e8-42bd-8f75-cf6f3a2fd5c0', {
     
     try {
     // Faz a requisição para o servidor para gerar a chave Pix
-    const response = await fetch('https://rcwifi-payment-server.sv1o3q.easypanel.host:3200/generate-pix', {
+    const response = await fetch('https://rcwifi-payment-server.sv1o3q.easypanel.host/generate-pix', {
        method: 'POST',
        headers: {
            'Content-Type': 'application/json'
@@ -208,7 +208,7 @@ function processPayment(paymentData) {
 
     console.log('Dados da requisição:', data); // Log para depurar a requisição
 
-    fetch('https://rcwifi-payment-server.sv1o3q.easypanel.host:3200/process-payment', {
+    fetch('https://rcwifi-payment-server.sv1o3q.easypanel.host/process-payment', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
