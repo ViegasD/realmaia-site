@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pagamento com Mercado Pago</title>
+      <script src="https://sdk.mercadopago.com/js/v2"></script>
+      <style>
+         body {
+         font-family: 'Arial', sans-serif;
+         background-color: #f4f4f4;
+         margin: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         }
+         .container {
+         background-color: #fff;
+         padding: 2rem;
+         border-radius: 12px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+         width: 100%;
+         max-width: 400px;
+         text-align: center;
+         }
+         h1 {
+         color: #333;
+         margin-bottom: 1.5rem;
+         }
+         form {
+            display: flex;
+            flex-direction: column;
+         }
+         label {
+         margin: 0.5rem 0 0.2rem;
+         color: #555;
+         font-weight: bold;
+         }
+         input, select {
+         padding: 0.75rem;
+         border: 1px solid #ccc;
+         border-radius: 8px;
+         margin-bottom: 1rem;
+         font-size: 1rem;
+         transition: border-color 0.3s ease;
+         }
+         input:focus, select:focus {
+         border-color: #00a650;
+         outline: none;
+         box-shadow: 0 0 5px rgba(0, 166, 80, 0.3);
+         }
+         button {
+         background-color: #00a650;
+         color: white;
+         border: none;
+         padding: 0.75rem;
+         font-size: 1.1rem;
+         font-weight: bold;
+         border-radius: 8px;
+         cursor: pointer;
+         transition: background-color 0.3s ease, transform 0.1s ease;
+         }
+         button:hover {
+         background-color: #008f4e;
+         transform: translateY(-2px);
+         }
+         button:active {
+         transform: translateY(0);
+         }
+         #paymentMethodSelect {
+         margin-bottom: 1.5rem;
+         }
+         .active {
+         display: flex;
+         }
+         .payment-form {
+    display: none; /* Esconde todos os formulários por padrão */
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.payment-form.active {
+    display: flex; /* Mostra o formulário ativo */
+}
+.form-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+      </style>
+     
+   </head>
+   <body>
+      
+         <div class="container">
+            <h1>Escolha a Forma de Pagamento</h1>
+            <select id="paymentMethodSelect" onchange="showForm(this.value)">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="pix">PIX</option>
+                <option value="creditCard">Cartão de Crédito</option>
+                <option value="debitCard">Cartão de Débito</option>
+            </select>
+        
+            <!-- Formulário de PIX -->
+            <form id="pixForm" class="payment-form">
+                <div class="form-row">
+                    <label for="emailPix">Email:</label>
+                    <input type="email" id="emailPix" placeholder="exemplo@gmail.com" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="cpfPix">CPF:</label>
+                    <input type="text" id="cpfPix" placeholder="12345678910" required>
+                </div>
+            
+                <button type="submit">Pagar com PIX</button>
+            </form>
+            
+        
+            <!-- Formulário de Cartão de Crédito -->
+            <form id="creditCardForm" class="payment-form">
+    <div class="form-row">
+        <label for="cardNumber">Número do Cartão:</label>
+        <input type="text" id="cardNumber" placeholder="Número do cartão" required>
+    </div>
+
+    <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="exemplo@gmail.com" required>
+    </div>
+
+    <div class="form-row">
+        <label for="cardExpirationMonth">Mês de Expiração:</label>
+        <input type="text" id="cardExpirationMonth" placeholder="MM" required>
+    
+        <label for="cardExpirationYear">Ano de Expiração:</label>
+        <input type="text" id="cardExpirationYear" placeholder="AA" required>
+    </div>
+
+    <div class="form-row">
+        <label for="cardholderName">Nome no Cartão:</label>
+        <input type="text" id="cardholderName" placeholder="Nome completo" required>
+    </div>
+
+    <div class="form-row">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" placeholder="12345678910" required>
+    </div>
+
+    <div class="form-row">
+        <label for="securityCode">Código de Segurança (CVV):</label>
+        <input type="text" id="securityCode" placeholder="CVV" required>
+    </div>
+
+    <button type="submit">Pagar com Cartão de Crédito</button>
+</form>
+
+            <!-- Formulário de Cartão de Débito -->
+            <form id="debitCardForm" class="payment-form">
+                <div class="form-row">
+                    <label for="debitCardNumber">Número do Cartão:</label>
+                    <input type="text" id="debitCardNumber" placeholder="Número do cartão" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="emailDebit">Email:</label>
+                    <input type="email" id="emailDebit" placeholder="exemplo@gmail.com" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="debitCardExpirationMonth">Mês de Expiração:</label>
+                    <input type="text" id="debitCardExpirationMonth" placeholder="MM" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="debitCardExpirationYear">Ano de Expiração:</label>
+                    <input type="text" id="debitCardExpirationYear" placeholder="AAAA" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="debitCardholderName">Nome no Cartão:</label>
+                    <input type="text" id="debitCardholderName" placeholder="Nome completo" required>
+                </div>
+            
+                <div class="form-row">
+                    <label for="cpfDebit">CPF:</label>
+                    <input type="text" id="cpfDebit" placeholder="12345678910" required>
+                </div>
+            
+                <button type="submit">Pagar com Cartão de Débito</button>
+            </form>
+            
+        </div>
+        
+      </div>
+      <script>
+        const mp = new MercadoPago('TEST-1662793b-83e8-42bd-8f75-cf6f3a2fd5c0', {
+            locale: 'pt-BR'
+        });
+        function showForm(paymentMethod) {
+    // Esconde todos os formulários
+    document.querySelectorAll('.payment-form').forEach(form => form.classList.remove('active'));
+
+    // Mostra o formulário selecionado
+    const selectedForm = document.getElementById(paymentMethod + 'Form');
+    if (selectedForm) {
+        selectedForm.classList.add('active');
+    }
+}
+
+         
+         function generateQRCode() {
+             const pixKey = document.getElementById('pixKey').value;
+             if (pixKey) {
+                 document.getElementById('qrcode').innerHTML = '';
+                 new QRCode(document.getElementById('qrcode'), {
+                     text: pixKey,
+                     width: 128,
+                     height: 128
+                 });
+             }
+         }
+        function showForm(paymentType) {
+            document.getElementById('pixForm').style.display = 'none';
+            document.getElementById('creditCardForm').style.display = 'none';
+            document.getElementById('debitCardForm').style.display = 'none';
+    
+            if (paymentType === 'pix') {
+                document.getElementById('pixForm').style.display = 'block';
+            } else if (paymentType === 'creditCard') {
+                document.getElementById('creditCardForm').style.display = 'block';
+            } else if (paymentType === 'debitCard') {
+                document.getElementById('debitCardForm').style.display = 'block';
+            }
+        }
+    
+        // PIX Payment
+        document.getElementById('pixForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailPix').value;
+            const cpf = document.getElementById('cpfPix').value;
+            processPayment({ payment_method_id: 'pix', email, cpf });
+        });
+    
+        // Credit Card Payment
+        document.getElementById('creditCardForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardExpirationMonth = document.getElementById('cardExpirationMonth').value;
+            const cardExpirationYear = document.getElementById('cardExpirationYear').value;
+            const cardholderName = document.getElementById('cardholderName').value;
+            const securityCode = document.getElementById('securityCode').value;
+            const email = document.getElementById('email').value;
+            const cpf = document.getElementById('cpf').value;
+    
+            mp.createCardToken({
+                cardNumber,
+                cardExpirationMonth,
+                cardExpirationYear,
+                securityCode,
+                cardholderName
+            }).then(function(response) {
+                processPayment({ token: response.id, payment_method_id: 'visa', email, cpf });
+            }).catch(function(error) {
+                console.error('Erro ao criar o token:', error);
+                alert('Erro ao criar o token do cartão.');
+            });
+        });
+    
+        // Debit Card Payment
+        document.getElementById('debitCardForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailDebit').value;
+            const cpf = document.getElementById('cpfDebit').value;
+            processPayment({ payment_method_id: 'debit_card', email, cpf });
+        });
+    
+        // Process Payment Function
+        function processPayment(paymentData) {
+            const { email, cpf, ...rest } = paymentData;
+    
+            const data = {
+                transaction_amount: 100,
+                description: 'Descrição do produto',
+                installments: 1,
+                ...rest,
+                payer: {
+                    email: email,
+                    identification: {
+                        type: 'CPF',
+                        number: cpf
+                    }
+                }
+            };
+    
+            fetch('http://localhost:3200/process-payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Pagamento processado:', data);
+                alert('Pagamento realizado com sucesso!');
+            })
+            .catch(error => {
+                console.error('Erro ao processar pagamento:', error);
+                alert('Erro ao processar o pagamento.');
+            });
+        }
+    </script>
+    
+   </body>
+   </body>
+</html>

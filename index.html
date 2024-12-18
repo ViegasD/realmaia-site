@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        header img {
+            height: 80px; /* Aumentando o tamanho da logo */
+        }
+
+        main {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 70px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .bus-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 3%;
+        }
+
+        .blue-overlay {
+            background-color: #0094ef;
+            height: 100px;
+            width: 100vw; /* Ocupa toda a largura da janela */
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .bus-image img {
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-top: 15px;
+           
+        }
+
+        p { 
+            padding: 2%;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .connect-button {
+           margin-top: 5%;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #0094ef;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Estilos para garantir que a página fique responsiva */
+        @media (min-width: 768px) {
+            main {
+                max-width: 700px;
+            }
+
+            header img {
+                height: 70px;
+            }
+
+            .bus-image img {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="Logo RealConnect">
+    </header>
+
+    <main>
+        <div class="bus-container">
+            <div class="blue-overlay"></div>
+            <div class="bus-image">
+                <img src="/images/bus.png" alt="Ônibus">
+            </div>
+        </div>
+        <h3>CONFORTO E VELOCIDADE</h3>
+        <p>“Internet com conexão rápida durante toda sua viagem!”</p>
+        <br>
+        <a href="planos.html" class="connect-button">CONECTAR AGORA</a>
+    </main>
+
+    <footer>
+        @REALCONNECT
+    </footer>
+</body>
+</html>

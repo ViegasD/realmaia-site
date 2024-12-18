@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos - RealConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            width: 100%;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        header img {
+            height: 80px;
+        }
+
+        .plan-container {
+            padding-top: 100px;
+            padding-bottom: 70px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .plan-container h2 {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .plan-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 25px 60px; /* Padding para quase encostar na tela */
+            max-width: calc(100% - 10px);
+        }
+
+        .plan-card.green {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .plan-card.blue {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .plan-time {
+            background-color: #fff;
+            color: #006aac;
+            border-radius: 50%;
+            padding: 15px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .plan-details {
+            flex-grow: 1;
+            margin-left: 15px;
+            text-align: left;
+        }
+
+        .plan-details p {
+            margin: 5px 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .price-container{
+            background-color: #fff;
+            color: #006aac;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+
+
+        footer {
+            background-color: #0094ef;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="\images\logo.png" alt="Logo RealConnect">
+    </header>
+    <br>
+    <div class="plan-container">
+        <h3>Selecione sua opção</h3>
+        <a href="pay.html" style="text-decoration: none;">
+        <div class="plan-card green">
+            <div class="plan-time">
+                <span style="color: #28a745;">15</span>
+                <small style="color: #28a745;" >Min.</small>
+            </div>
+            <div class="plan-details">
+                <p>25MB de Conexão</p>
+                <div style="color: #28a745;" class="price-container">GRATUITO</div>
+            </div>
+        </div>
+        </a>
+        <a href="pay.html" style="text-decoration: none;">
+        <div class="plan-card blue">
+            <div class="plan-time">
+                <span>1</span>
+                <small>Hora</small>
+            </div>
+            <div class="plan-details">
+                <p>250MB de Conexão</p>
+                <div class="price-container">R$ 2,00</div>
+            </div>
+        </div>
+        </a>
+        <a href="pay.html" style="text-decoration: none;">
+        <div class="plan-card blue">
+            <div class="plan-time">
+                <span>3</span>
+                <small>Horas</small>
+            </div>
+            <div class="plan-details">
+                <p>750MB de Conexão</p>
+                <div class="price-container">R$ 5,00</div>
+            </div>
+        </div>
+        </a>
+        <a href="pay.html" style="text-decoration: none;">
+        <div class="plan-card blue">
+            <div class="plan-time">
+                <span>8</span>
+                <small>Horas</small>
+            </div>
+            <div class="plan-details">
+                <p>3GB de Conexão</p>
+                <div class="price-container">R$ 10,00</div>
+            </div>
+        </div>
+        </a>
+        <a href="pay.html" style="text-decoration: none;">
+        <div class="plan-card blue">
+            <div class="plan-time">
+                <span>16</span>
+                <small>Horas</small>
+            </div>
+            <div class="plan-details">
+                <p>8GB de Conexão</p>
+                <div class="price-container">R$ 20,00</div>
+            </div>
+        </div>
+    </div>
+    </a>
+    <footer>
+        @REALCONNECT
+    </footer>
+</body>
+</html>

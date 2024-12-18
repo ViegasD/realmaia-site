@@ -1,0 +1,137 @@
+/* Define tamanho padrão para o corpo da página */
+body {
+    font-size: 16px;
+  }
+  
+  /* Controla o tamanho dos títulos */
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estiliza todos os inputs de texto e email */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 4rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  /* Controla o tamanho dos campos de formulário em geral */
+  .form-control {
+    font-size: 90rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  /* Controla os botões dentro dos formulários */
+  .btn {
+    font-size: 4rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  /* Controla o tamanho das abas de navegação */
+  .nav-link {
+    font-size: 1.5rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  /* Controla os ícones dentro das abas */
+  .nav-link i {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Ajusta o tamanho dos rótulos dos campos */
+  label {
+    font-size: 4rem !important;
+    font-weight: bold;
+  }
+  
+  /* Ajusta os inputs de data de validade e CVV */
+  .form-row .form-control {
+    font-size: 4rem !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* Estiliza o QR Code e o container do Pix */
+  #qrcode-container {
+    font-size: 4rem;
+  }
+  
+  /* Estiliza o botão de copiar chave Pix */
+  #pixForm .btn {
+    font-size: 4rem !important;
+  }
+  
+  /* Estilização responsiva para telas menores */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    .form-control,
+    .btn,
+    .nav-link {
+      font-size: 1rem !important;
+      padding: 0.5rem !important;
+    }
+  }
+  
+  /* Aumenta o tamanho dos botões de Crédito, Débito e Pix */
+.nav-pills .nav-link {
+    font-size: 3.5rem !important; /* Aumenta o tamanho da fonte */
+    padding: 1rem 2rem !important; /* Aumenta o espaçamento interno (padding) */
+  }
+  
+  /* Aumenta o tamanho dos ícones dentro dos botões */
+  .nav-pills .nav-link i {
+    font-size: 3.5rem !important; /* Ajusta o tamanho dos ícones */
+  }
+  
+  
+.rounded{
+    border-radius: 1rem
+}
+.nav-pills .nav-link{
+    color: #555
+}
+.nav-pills .nav-link.active{
+    color: white
+}
+input[type="radio"]{
+    margin-right: 5px
+}
+.bold{
+    font-weight:bold
+}
+#qrcode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#qrcode canvas {
+    width: 250px;
+    height: 250px;
+}
+
+#pixKeyDisplay {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+    color: white;
+    font-size: 2rem;
+}
+
+.btn-secondary:hover {
+    background-color: #5a4bcf;
+    border-color: #5a4bcf;
+}
