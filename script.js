@@ -51,7 +51,7 @@ const mp = new MercadoPago('TEST-1662793b-83e8-42bd-8f75-cf6f3a2fd5c0', {
     
     try {
     // Faz a requisição para o servidor para gerar a chave Pix
-    const response = await fetch('http://192.168.1.18:3200/generate-pix', {
+    const response = await fetch('http://147.93.15.46:3200/generate-pix', {
        method: 'POST',
        headers: {
            'Content-Type': 'application/json'
@@ -208,7 +208,7 @@ function processPayment(paymentData) {
 
     console.log('Dados da requisição:', data); // Log para depurar a requisição
 
-    fetch('http://localhost:3200/process-payment', {
+    fetch('http://147.93.15.46:3200/process-payment', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
